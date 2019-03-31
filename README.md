@@ -24,7 +24,7 @@ cd rockr-blog-web
 npm install
 ```
 
-5. Configure os endpoints REST da sua [Blog Rockr API](https://github.com/ahlechandre/rockr-blog-api) no arquivo `./src/env.json`:
+5. (**Opcional**) Se a sua [Blog Rockr API](https://github.com/ahlechandre/rockr-blog-api) estiver rodando em host ou porta diferente de `localhost:8000` (padrão), então configure os endpoints REST no arquivo `./src/env.json`:
 
 ```json
 {
