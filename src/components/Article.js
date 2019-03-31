@@ -9,10 +9,9 @@ export default function Article({
   isFetching,
   article,
 }) {
-  // Hook para side-effect. Dependência constante pois apenas é utilizado
-  // na primeira renderização.
+  // Hook para side-effect. Tenta buscar artigo na primeira renderização.
   useEffect(() => {
-    // Apenas busca o artigo se ele não existir na coleção atual.
+    // Apenas busca o artigo se este não existir na coleção atual.
     if (!article) {
       fetchArticle()
     }
@@ -21,7 +20,7 @@ export default function Article({
   // Verifica se está pronto para mostrar o artigo...
   if (!article || isFetching) {
     return (
-      <Feedback text="Preparando..." />
+      <Feedback text="Preparando artigo..." />
     )
   }
 
