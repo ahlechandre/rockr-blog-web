@@ -52,7 +52,9 @@ export default function Contacts({
   return (
     <div>
       {/* Grid para contatos */}
-      <Grid>
+      <Grid style={{
+        maxWidth: '750px'
+      }}>
         {/* Título */}
         <Row>
           <Cell desktopColumns={12} style={{

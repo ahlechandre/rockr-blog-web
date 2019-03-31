@@ -69,7 +69,7 @@ export default function Article({
 // Imagem de capa.
 const Cover = styled.div`
   width: 100%;
-  height: 400px;
+  height: 500px;
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-repeat: no-repeat;
@@ -79,12 +79,14 @@ const Cover = styled.div`
 const Title = styled.h1`
   font-size: 3rem;
   margin-top: -7rem;
+  margin-bottom: 0;
 `
 
 // Autor do artigo.
 const Author = styled.h3`
   font-size: 1.25rem;
   color: white;
+  margin: 0;
 `
 
 // Data de publicação.

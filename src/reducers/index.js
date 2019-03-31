@@ -87,7 +87,12 @@ const resourceFetched = (state, action) => {
     ...state.byId,
     [resource.id]: resource
   }
-  const allIds = Object.keys(byId)
+  // Adiciona no início se não existir.
+  const allIds = state.allIds.includes(resource.id) ?
+    state.allIds : [
+      resource.id,
+      ...state.allIds
+    ]
 
   return {
     allIds,
