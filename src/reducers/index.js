@@ -59,7 +59,14 @@ const collectionFetched = (state, action) => {
     ...state.byId,
     ...nextById
   }
-  const allIds = Object.keys(byId)
+  // Mantém a ordem do JSON.
+  const allIds = [
+    ...state.allIds,
+    // Adiciona apenas os que não existem.
+    ...action.payload.collection
+      .filter(resource => !state.allIds.includes(resource.id))
+      .map(resource => resource.id)
+  ]
 
   return {
     allIds,
@@ -80,7 +87,12 @@ const resourceFetched = (state, action) => {
     ...state.byId,
     [resource.id]: resource
   }
-  const allIds = Object.keys(byId)
+  // Adiciona no início se não existir.
+  const allIds = state.allIds.includes(resource.id) ?
+    state.allIds : [
+      resource.id,
+      ...state.allIds
+    ]
 
   return {
     allIds,

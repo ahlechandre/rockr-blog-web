@@ -1,12 +1,18 @@
 import React from 'react'
+// Redux...
 import { Provider } from 'react-redux'
 import store from './store'
-import Navigator from './components/Navigator'
+// Componentes...
+import GlobalStyle from './components/GlobalStyle'
+import Layout from './components/Layout'
 
 export default function App() {
   return (
     <Provider store={store}>
-      <Navigator />
+      {/* Estilo CSS Global */}
+      <GlobalStyle />
+      {/* Layout da aplicação */}
+      <Layout />
     </Provider>
   )
 }
