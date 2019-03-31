@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Cell, Grid, Row } from '@material/react-layout-grid';
 import Feedback from './Feedback'
-import Paginate from './Paginate'
+import Button from './Button'
 
 export default function Articles({
   paginateArticles,
@@ -69,12 +69,12 @@ export default function Articles({
           <Cell desktopColumns={12} style={{
             textAlign: 'center'
           }}>
-            <Paginate
+            <Button
               disabled={!nextPage}
               onClick={() => {
                 // Despacha ação para buscar próxima página de artigos.
                 paginateArticles(nextPage)
-              }}>Carregar mais</Paginate>          
+              }}>Carregar mais</Button>          
           </Cell>
         </Row>
       </Grid>

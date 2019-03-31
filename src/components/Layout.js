@@ -73,13 +73,13 @@ const ToolbarLogo = styled.div`
 `
 
 const ToolbarNav = styled.div`
-  margin: 0 10px;
+  /* margin: 0 10px; */
 `
 
 const ToolbarLink = styled(NavLink)`
   color: rgba(255, 255, 255, .6);
   text-decoration: none;
-  margin: 0 6px;
+  margin: 0 16px;
 
   &:hover, &:active, &:focus {
     color: white;

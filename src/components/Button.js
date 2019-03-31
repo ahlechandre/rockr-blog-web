@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-// Botão para paginação.
-const Paginate = styled.button`
+// Botão padrão.
+const Button = styled.button`
   font-size: 1rem;
   margin: 24px 0;
   border: none;
@@ -18,4 +18,4 @@ const Paginate = styled.button`
   }
 `
 
-export default Paginate
+export default Button

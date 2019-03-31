@@ -59,7 +59,14 @@ const collectionFetched = (state, action) => {
     ...state.byId,
     ...nextById
   }
-  const allIds = Object.keys(byId)
+  // Mantém a ordem do JSON.
+  const allIds = [
+    ...state.allIds,
+    // Adiciona apenas os que não existem.
+    ...action.payload.collection
+      .filter(resource => !state.allIds.includes(resource.id))
+      .map(resource => resource.id)
+  ]
 
   return {
     allIds,
