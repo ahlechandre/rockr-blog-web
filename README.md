@@ -79,23 +79,22 @@ npm start
 ## Third-party libraries
 
 * `create-react-app`
-  - Por quê: iniciar um projeto React com configuração mínima.
+  - **Motivação**: iniciar um projeto React com configuração mínima.
 * `redux`
-  - Por quê: manter o estado e a lógica da aplicação de forma centralizada, consistente e funcional.
-  - Como: defininindo as ações e a lógica de como elas modificam o estado global (store) de acordo com cada interação com a [Blog Rockr API](https://github.com/ahlechandre/rockr-blog-api).
+  - **Motivação**: manter o estado e a lógica da aplicação de forma centralizada, consistente e funcional.
+  - **Como**: defininindo as ações e a lógica de como elas modificam o estado global (store) de acordo com cada interação com a [Blog Rockr API](https://github.com/ahlechandre/rockr-blog-api).
 * `react-redux`
-  - Por quê: provê o acesso ao estado global (store) para toda a árvore de componentes React.
-  - Como: mapeando o estado global e o despache de ações para os componentes conectados à store.
+  - **Motivação**: prover o acesso ao estado global (store) para toda a árvore de componentes React.
+  - **Como**: mapeando o estado global e o despache de ações para os componentes conectados à store.
 * `redux-saga`
-  - Por quê: trabalhar com efeitos colaterais (*side-effects*) de forma consistente e expressiva.
-  - Como: assistindo as ações (do Redux) que demandam *side-effects* e aplicando os procedimentos necessários (e.g. buscar artigos, enviar contato).
+  - **Motivação**: trabalhar com efeitos colaterais (*side-effects*) de forma consistente e expressiva.
+  - **Como**: assistindo as ações (do Redux) que demandam *side-effects* e aplicando os procedimentos necessários (e.g. buscar artigos, enviar contato).
 * `redux-logger`
-  - Por quê: visualizar todas as modificações de estado na sequência em que as ações são despachadas na store.
+  - **Motivação**: visualizar todas as modificações de estado na sequência em que as ações são despachadas na store.
 * `react-router-dom`
-  - Por quê: definir roteamente na aplicação React.
+  - **Motivação**: definir roteamente na aplicação React.
 * `styled-components`
-  - Por quê: manter os estilos dos componentes de forma declarativa e encapsulada.
-  - Como: definindo os componentes React estilizados nos próprios módulos JavaScript ao invés de arquivos CSS externos.
+  - **Motivação**: manter os estilos dos componentes de forma declarativa e encapsulada nos próprios módulos JavaScript ao invés de arquivos CSS externos.
 * `@material/react-layout-grid`
-  - Por quê: utilizar um sistema de Grid consistente e expressivo.
-  - Como: importando os componentes oficiais (Grid, Row, Cell) e apenas parametrizando-os.
+  - **Motivação**: utilizar um sistema de Grid consistente e expressivo.
+  - **Como**: importando os componentes oficiais (Grid, Row, Cell) e apenas parametrizando-os.
