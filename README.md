@@ -98,3 +98,7 @@ npm start
 * `@material/react-layout-grid`
   - **Motivação**: utilizar um sistema de Grid consistente e expressivo.
   - **Como**: importando os componentes oficiais (Grid, Row, Cell) e apenas parametrizando-os.
+
+  --------
+
+*Made with love*.
