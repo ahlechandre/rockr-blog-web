@@ -1,43 +1,90 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
+// Componentes...
+import { Cell, Grid, Row } from '@material/react-layout-grid';
+import Feedback from './Feedback'
+import Paginate from './Paginate'
 
 export default function Contacts({
+  paginateContacts,
   isFetching,
   nextPage,
-  contacts,
-  paginateContacts
+  contacts
 }) {
-  const [pageToFetch, setPageToFetch] = useState(nextPage)
-
+  // Hook para side-effect. Busca a primeira página de contatos ao renderizar.
   useEffect(() => {
-    if (pageToFetch) {
-      paginateContacts(pageToFetch)
-    }
-  }, [ pageToFetch ])
+    paginateContacts(1)
+  }, [])
 
-  if (isFetching) {
-    return <h1>Carregando...</h1>
+  // Verifica se está pronto para mostrar a lista de contatos...
+  if (!contacts.length && isFetching) {
+    return (
+      <Feedback text="Preparando contatos..." />
+    )
   }
+  
+  // Renderiza um item de contato.
+  const mapContactToRender = (contact, index) => {
+    return (
+      <Cell desktopColumns={12} key={index}>
+        {/* Divisor */}
+        <div style={{
+          height: index === 0 ? 0 : '1px',
+          width: '100%',
+          backgroundColor: 'rgba(255, 255, 255, .1)'
+        }}></div>
 
-  if (!contacts.length) {
-    return <h1>Nada para mostrar</h1>
+        {/* Data de envio */}
+        <ContactedAt>{
+          (new Date(contact.created_at)).toLocaleDateString()
+        }</ContactedAt>
+
+        {/* Nome e e-mail */}
+        <h4>{contact.name} {`<${contact.email}, ${contact.phone}>`}</h4>
+        {/* Mensagem */}
+        <p>
+          {contact.message}
+        </p>
+      </Cell>
+    )
   }
 
   return (
     <div>
-      <h1>Contatos (páginas: {pageToFetch})</h1>
+      {/* Grid para contatos */}
+      <Grid>
+        {/* Título */}
+        <Row>
+          <Cell desktopColumns={12} style={{
+            textAlign: 'center'
+          }}>
+            <h1>Contatos</h1>
+          </Cell>          
+        </Row>
 
-      <ul>
-        {contacts.map((contact, index) => (<li key={index}>
-          <p>Nome: {contact.name}</p>
-          <p>Email: {contact.email}</p>
-          <p>Fone: {contact.phone}</p>
-          <p>Mensagem: {contact.message}</p>
-        </li>))}
-      </ul>
-
-      <button disabled={!nextPage} onClick={() => {
-        setPageToFetch(pageToFetch + 1)
-      }}>load more</button>
+        {/* Lista */}
+        <Row>
+          {contacts.map(mapContactToRender)}          
+        </Row>
+        
+        {/* Paginação */}
+        <Row>
+          <Cell desktopColumns={12} style={{
+            textAlign: 'center'
+          }}>
+            <Paginate
+              disabled={!nextPage}
+              onClick={() => {
+                // Despacha ação para buscar próxima página de contatos.
+                paginateContacts(nextPage)
+              }}>Carregar mais</Paginate>          
+          </Cell>
+        </Row>
+      </Grid>
     </div>
   )
 }
+
+const ContactedAt = styled.h3`
+  color: rgba(255, 255, 255, .4);
+`

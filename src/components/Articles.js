@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Cell, Grid, Row } from '@material/react-layout-grid';
 import Feedback from './Feedback'
+import Paginate from './Paginate'
 
 export default function Articles({
   paginateArticles,
@@ -70,9 +71,7 @@ export default function Articles({
           }}>
             <Paginate
               disabled={!nextPage}
-              onClick={event => {
-                // Evita subir scroll.
-                event.preventDefault()
+              onClick={() => {
                 // Despacha ação para buscar próxima página de artigos.
                 paginateArticles(nextPage)
               }}>Carregar mais</Paginate>          
@@ -124,22 +123,4 @@ const Author = styled.h3`
 const PublicatedAt = styled.h3`
   font-size: 1rem;
   color: rgba(255, 255, 255, .5);
-`
-
-// Botão para paginação.
-const Paginate = styled.button`
-  font-size: 1rem;
-  margin: 24px 0;
-  border: none;
-  background-color: rgba(0, 0, 0, .25);
-  cursor: pointer;
-  color: white;
-  text-transform: uppercase;
-  padding: 16px;
-  
-  &:disabled {
-    background-color: rgba(0, 0, 0, .1);
-    color: rgba(255, 255, 255, 0.5);
-    cursor: initial;
-  }
 `
